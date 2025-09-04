@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: My Action Step
-        uses: RafaelPereiraSantos/update-segment-functions@master
+        uses: RafaelPereiraSantos/update-segment-functions@main
         with:
           authorization-token: 'value_1'
           segment-functions-config-path: 'value_2'
