@@ -24,3 +24,4 @@ jobs:
         with:
           authorization-token: 'value_1'
           segment-functions-config-path: 'segment-functions-config.yaml'
+          trunk-branch: 'master'
