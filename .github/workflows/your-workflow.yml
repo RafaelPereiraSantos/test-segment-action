@@ -23,4 +23,4 @@ jobs:
         uses: RafaelPereiraSantos/update-segment-functions@main
         with:
           authorization-token: 'value_1'
-          segment-functions-config-path: 'value_2'
+          segment-functions-config-path: 'segment-functions-config.yaml'
