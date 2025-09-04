@@ -1,0 +1,29 @@
+functions:
+  - name: function-a
+    path: ./functions/func-a/index.js
+    functionID: functionID
+    displayName: displayName
+    logoUrl: logoUrl
+    resourceType: resourceType
+    description: description
+    settings:
+      - name: name
+        label: Name
+        description: The name of the setting
+        required: true
+        sensitive: false
+        type: string
+  - name: function-b
+    path: ./functions/func-b/index.js
+    functionID: functionID
+    displayName: displayName
+    logoUrl: logoUrl
+    resourceType: resourceType
+    description: description
+    settings:
+      - name: name
+        label: Name
+        description: The name of the setting
+        required: true
+        sensitive: false
+        type: string

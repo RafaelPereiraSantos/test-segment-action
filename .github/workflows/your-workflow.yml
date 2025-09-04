@@ -1,0 +1,21 @@
+name: My Workflow
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  my_job:
+    runs-on: ubuntu-latest
+
+    if: |
+      github.event.issue.pull_request &&
+      contains(github.event.comment.body, '/deploy') &&
+      (github.event.comment.author_association == 'OWNER' || github.event.comment.author_association == 'MEMBER')
+
+    steps:
+      - name: My Action Step
+        uses: RafaelPereiraSantos/update-segment-functions@master
+        with:
+          authorization-token: 'value_1'
+          segment-functions-config-path: 'value_2'
