@@ -14,8 +14,14 @@ jobs:
       (github.event.comment.author_association == 'OWNER' || github.event.comment.author_association == 'MEMBER')
 
     steps:
-      - name: My Action Step
-        uses: RafaelPereiraSantos/update-segment-functions@master
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
-          authorization-token: 'value_1'
-          segment-functions-config-path: 'value_2'
+          fetch-depth: 0
+
+      - name: My Action Step
+        uses: RafaelPereiraSantos/update-segment-functions@main
+        with:
+          authorization-token: ${{ secrets.SEGMENT_API_KEY }}
+          segment-functions-config-path: 'segment-functions-config-sample.yaml'
+          trunk-branch: 'master'
