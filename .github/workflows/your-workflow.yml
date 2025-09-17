@@ -8,10 +8,10 @@ jobs:
   my_job:
     runs-on: ubuntu-latest
 
-    if: |
-      github.event.issue.pull_request &&
-      contains(github.event.comment.body, '/deploy') &&
-      (github.event.comment.author_association == 'OWNER' || github.event.comment.author_association == 'MEMBER')
+    # if: |
+    #   github.event.issue.pull_request &&
+    #   contains(github.event.comment.body, '/deploy') &&
+    #   (github.event.comment.author_association == 'OWNER' || github.event.comment.author_association == 'MEMBER')
 
     steps:
       - name: Checkout repository
@@ -19,9 +19,15 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Generate self-signed certificate
+        id: generate-cert
+        run: openssl req -x509 -newkey rsa:2048 -nodes -keyout key.pem -out cert.pem -days 365 -subj "/CN=github-action-test"
+
       - name: My Action Step
         uses: RafaelPereiraSantos/update-segment-functions@main
         with:
           authorization-token: ${{ secrets.SEGMENT_API_KEY }}
           segment-functions-config-path: 'segment-functions-config-sample.yaml'
           trunk-branch: 'master'
+        env:
+          NODE_EXTRA_CA_CERTS: ./cert.pem
