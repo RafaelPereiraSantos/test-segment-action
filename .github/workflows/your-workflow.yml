@@ -1,26 +1,20 @@
 name: My Workflow
 
 on:
-  issue_comment:
-    types: [created]
+  pull_request:
 
 jobs:
   my_job:
     runs-on: ubuntu-latest
 
-    if: |
-      github.event.issue.pull_request &&
-      contains(github.event.comment.body, '/deploy') &&
-      (github.event.comment.author_association == 'OWNER' || github.event.comment.author_association == 'MEMBER')
+    # if: |
+    #   github.event.issue.pull_request &&
+    #   contains(github.event.comment.body, '/deploy') &&
+    #   (github.event.comment.author_association == 'OWNER' || github.event.comment.author_association == 'MEMBER')
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
       - name: My Action Step
-        uses: RafaelPereiraSantos/update-segment-functions@main
+        uses: RafaelPereiraSantos/update-segment-functions@v1.0.5
         with:
           segment-token: ${{ secrets.SEGMENT_API_KEY }}
           configuration-file-path: segment-functions-config-sample.yaml
