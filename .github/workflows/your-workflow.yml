@@ -22,6 +22,6 @@ jobs:
       - name: My Action Step
         uses: RafaelPereiraSantos/update-segment-functions@main
         with:
-          authorization-token: ${{ secrets.SEGMENT_API_KEY }}
-          segment-functions-config-path: 'segment-functions-config-sample.yaml'
+          segment-token: ${{ secrets.SEGMENT_API_KEY }}
+          configuration-file-path: segment-functions-config-sample.yaml
           trunk-branch: 'master'
