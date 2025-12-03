@@ -1,4 +1,4 @@
 functions:
-  - functionName: example function name
-    codePath: functions/func-a/index.js
-    settingsPath: functions/func-a/settings.yaml
+  - name: sample function
+    code_path: functions/func-a/index.js
+    settings_path: functions/func-a/settings.yaml

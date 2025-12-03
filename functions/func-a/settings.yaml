@@ -1,11 +1,8 @@
-functionID: dfn_68cb00a3a36c8cfb4d3ac889
+function_id: sample_function_id
 settings:
-  - name: 'functionApiKey'
-    label: 'apiKey'
-    description: 'function API key'
-    required: true
-    sensitive: true
-    type: 'STRING'
-displayName: my function
-resourceType: "DESTINATION"
-description: my function description
+  - name: sample variable
+    label: variable_label
+    description: This is a sample variable for demonstration.
+    type: string
+    required: false
+    sensitive: false
